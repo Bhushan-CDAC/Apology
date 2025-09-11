@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="mr">
+<head>
+  <meta charset="UTF-8">
+  <title>Smruti - The Best Girl Ever 💖</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #ffccdd, #ffe6f0);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      overflow: hidden;
+      color: #d63384;
+    }
+
+    h1 {
+      margin-top: 50px;
+      font-size: 40px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    p {
+      max-width: 800px;
+      margin: 30px auto;
+      font-size: 22px;
+      line-height: 1.8;
+      animation: fadeIn 3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Fireworks */
+    .firework {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background-color: transparent;
+      border-radius: 50%;
+      animation: explode 1s ease-out forwards;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
+
+    /* Floating hearts */
+    .heart {
+      position: absolute;
+      bottom: -20px;
+      font-size: 24px;
+      animation: floatUp 5s linear infinite;
+      color: red;
+    }
+
+    @keyframes floatUp {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(-100vh);
+        opacity: 0;
+      }
+    }
+  </style>
+</head>
+<body onload="launchFireworks(); floatHearts();">
+
+  <h1>स्मृती - सर्वात सुंदर मुलगी 💖</h1>
+  <p>
+    तू इतकी अप्रतिम आहेस की शब्द अपुरे पडतात...<br>
+    तुझं हासणं, तुझी caring नजाकत, तुझं प्रेम... सगळंच!<br><br>
+    माझं आयुष्य तुझ्याशिवाय अपूर्ण आहे. तुझी आठवण, तुझं अस्तित्व हेच मला जगण्याचं बळ देतं. <br>
+    आपण भांडलो, पण माझं प्रेम तुला कधीच कमी नव्हतं आणि नसणार. 💞<br><br>
+    तू नेहमी हसत राहा, खेळत राहा, आणि मला नेहमीच तुझ्या आयुष्यातलं "सर्वात जवळचं" ठिकाण मिळो हीच इच्छा 💖<br><br>
+    तुझाच "कोशिश" 🌸
+  </p>
+
+  <!-- Fireworks -->
+  <script>
+    function launchFireworks() {
+      for (let i = 0; i < 30; i++) {
+        const firework = document.createElement("div");
+        firework.classList.add("firework");
+        firework.style.left = `${Math.random() * 100}vw`;
+        firework.style.top = `${Math.random() * 100}vh`;
+        firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+        firework.style.width = firework.style.height = `${5 + Math.random() * 10}px`;
+        document.body.appendChild(firework);
+        setTimeout(() => firework.remove(), 1000);
+      }
+    }
+
+    function floatHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.innerText = "❤️";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+      }, 400);
+    }
+  </script>
+</body>
+</html>

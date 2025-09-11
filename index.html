@@ -1,140 +1,114 @@
 <!DOCTYPE html>
-<html lang="mr">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Smruti, please maaf kar na 🥺</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sorry Smruti 💖</title>
   <style>
     body {
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to right, #ffdde1, #ff99cc);
-      font-family: 'Segoe UI', sans-serif;
-      color: #880e4f;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-      overflow: hidden;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #ffe6f0;
+      color: #4d2c3d;
+      text-align: center;
+      padding: 40px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background-color: #fff0f5;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
     }
 
     h1 {
-      font-size: 2.5em;
-      animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
-      white-space: nowrap;
-      overflow: hidden;
-      border-right: 3px solid #880e4f;
-      max-width: 90%;
+      color: #d63384;
     }
 
-    @keyframes typing {
-      from { width: 0 }
-      to { width: 100% }
-    }
-
-    @keyframes blink-caret {
-      from, to { border-color: transparent }
-      50% { border-color: #880e4f; }
-    }
-
-    .btn-group {
-      margin-top: 30px;
+    input[type="text"] {
+      padding: 10px;
+      width: 60%;
+      border: 2px solid #ffb6c1;
+      border-radius: 10px;
+      margin-top: 10px;
     }
 
     button {
-      background-color: #ff4081;
-      border: none;
+      background-color: #ff69b4;
       color: white;
-      padding: 15px 30px;
-      font-size: 18px;
-      margin: 10px;
-      border-radius: 30px;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 20px;
       cursor: pointer;
-      transition: all 0.3s ease;
+      font-size: 16px;
+      margin: 10px;
     }
 
     button:hover {
-      background-color: #f50057;
-      transform: scale(1.1);
+      background-color: #ff1493;
     }
 
-    .message {
-      margin-top: 20px;
-      font-size: 20px;
+    #message-section {
       display: none;
-      text-align: center;
+      margin-top: 20px;
     }
 
-    .heart {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      transform: rotate(45deg);
-      animation: float 6s linear infinite;
+    #warning {
+      color: red;
+      font-weight: bold;
+      margin-top: 20px;
     }
 
-    .heart::before,
-    .heart::after {
-      content: '';
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: red;
-      border-radius: 50%;
-    }
-
-    .heart::before {
-      top: -10px;
-      left: 0;
-    }
-
-    .heart::after {
-      left: -10px;
-      top: 0;
-    }
-
-    @keyframes float {
-      0% {
-        bottom: -20px;
-        left: calc(50% - 10px);
-        opacity: 1;
-      }
-      100% {
-        bottom: 100%;
-        left: calc(50% + 100px);
-        opacity: 0;
-      }
+    .gif {
+      width: 200px;
+      margin: 20px auto;
     }
   </style>
 </head>
 <body>
+  <div class="container">
+    <h1>💌 A Special Message 💌</h1>
+    <p>Please enter your name:</p>
+    <input type="text" id="nameInput" placeholder="Type your name..." />
+    <br />
+    <button onclick="checkName()">Okay</button>
 
-  <h1>Smruti, please maaf kar na... 🥺💗 - तुमचा Koshish</h1>
+    <div id="warning"></div>
 
-  <div class="btn-group">
-    <button onclick="yesClicked()">हो ✅</button>
-    <button onclick="noClicked()">नाही ❌</button>
+    <div id="message-section">
+      <div class="gif">
+        <img src="https://media.giphy.com/media/1BcfiGlOGXzQk/giphy.gif" alt="Cute Apology" width="100%" />
+      </div>
+      <h2>Dear Smruti ❤️</h2>
+      <p>
+        I am truly sorry for my words. I never intended to hurt you.<br>
+        You are the most precious girl in my life and I cherish you more than anything.<br>
+        Please forgive me... this will never happen again.<br><br>
+        With all my love,<br>
+        <strong>Koshish 💖</strong>
+      </p>
+      <div>
+        <button onclick="alert('Yay! Thank you Smruti ❤️')">Forgive 💖</button>
+        <button onclick="alert('I understand... but I’ll always wait for your forgiveness 💔')">Not to Forgive 💔</button>
+      </div>
+    </div>
   </div>
 
-  <div class="message" id="messageBox"></div>
-
-  <!-- Heart Animation -->
-  <div class="heart" style="left: 20%; animation-delay: 0s;"></div>
-  <div class="heart" style="left: 40%; animation-delay: 2s;"></div>
-  <div class="heart" style="left: 60%; animation-delay: 4s;"></div>
-
   <script>
-    function yesClicked() {
-      document.getElementById('messageBox').style.display = 'block';
-      document.getElementById('messageBox').innerHTML = "💖 Thank you Smruti! तू खरंच खूपच sweet आहेस 💖";
-    }
+    function checkName() {
+      const name = document.getElementById("nameInput").value.trim().toLowerCase();
+      const messageSection = document.getElementById("message-section");
+      const warning = document.getElementById("warning");
 
-    function noClicked() {
-      document.getElementById('messageBox').style.display = 'block';
-      document.getElementById('messageBox').innerHTML = "😢 पण please maaf kar na... मी खरंच sorry आहे 🙏";
+      if (name === "smruti") {
+        messageSection.style.display = "block";
+        warning.innerText = "";
+      } else {
+        messageSection.style.display = "none";
+        warning.innerText = "⚠️ You are not the one I am looking for. Leave this site immediately!";
+      }
     }
   </script>
-
 </body>
 </html>

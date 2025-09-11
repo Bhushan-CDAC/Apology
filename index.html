@@ -1,19 +1,140 @@
-
 <!DOCTYPE html>
 <html lang="mr">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>माफ करशील का?</title>
-  <link href="https://fonts.googleapis.com/css2?family=Baloo+2&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+  <title>Smruti, please maaf kar na 🥺</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to right, #ffdde1, #ff99cc);
+      font-family: 'Segoe UI', sans-serif;
+      color: #880e4f;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      animation: typing 4s steps(40, end), blink-caret .75s step-end infinite;
+      white-space: nowrap;
+      overflow: hidden;
+      border-right: 3px solid #880e4f;
+      max-width: 90%;
+    }
+
+    @keyframes typing {
+      from { width: 0 }
+      to { width: 100% }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent }
+      50% { border-color: #880e4f; }
+    }
+
+    .btn-group {
+      margin-top: 30px;
+    }
+
+    button {
+      background-color: #ff4081;
+      border: none;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 10px;
+      border-radius: 30px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #f50057;
+      transform: scale(1.1);
+    }
+
+    .message {
+      margin-top: 20px;
+      font-size: 20px;
+      display: none;
+      text-align: center;
+    }
+
+    .heart {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      transform: rotate(45deg);
+      animation: float 6s linear infinite;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: red;
+      border-radius: 50%;
+    }
+
+    .heart::before {
+      top: -10px;
+      left: 0;
+    }
+
+    .heart::after {
+      left: -10px;
+      top: 0;
+    }
+
+    @keyframes float {
+      0% {
+        bottom: -20px;
+        left: calc(50% - 10px);
+        opacity: 1;
+      }
+      100% {
+        bottom: 100%;
+        left: calc(50% + 100px);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
 <body>
-  <div class="container">
-    <h1>माझी चूक झाली...</h1>
-    <p>माफ करशील का?<br> खरंच मनापासून दिलगीर आहे.</p>
-    <p class="heart">❤️</p>
-    <p>तुझा कायमचा<br><strong>प्रेमाने, [तुझं नाव]</strong></p>
+
+  <h1>Smruti, please maaf kar na... 🥺💗 - तुमचा Koshish</h1>
+
+  <div class="btn-group">
+    <button onclick="yesClicked()">हो ✅</button>
+    <button onclick="noClicked()">नाही ❌</button>
   </div>
+
+  <div class="message" id="messageBox"></div>
+
+  <!-- Heart Animation -->
+  <div class="heart" style="left: 20%; animation-delay: 0s;"></div>
+  <div class="heart" style="left: 40%; animation-delay: 2s;"></div>
+  <div class="heart" style="left: 60%; animation-delay: 4s;"></div>
+
+  <script>
+    function yesClicked() {
+      document.getElementById('messageBox').style.display = 'block';
+      document.getElementById('messageBox').innerHTML = "💖 Thank you Smruti! तू खरंच खूपच sweet आहेस 💖";
+    }
+
+    function noClicked() {
+      document.getElementById('messageBox').style.display = 'block';
+      document.getElementById('messageBox').innerHTML = "😢 पण please maaf kar na... मी खरंच sorry आहे 🙏";
+    }
+  </script>
+
 </body>
 </html>

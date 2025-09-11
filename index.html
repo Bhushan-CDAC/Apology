@@ -1,25 +1,26 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="mr">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Sorry Smruti 💖</title>
+  <title>क्षमस्व स्मृति 💔</title>
   <style>
     body {
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #ffe6f0;
-      color: #4d2c3d;
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
       padding: 40px;
+      background-color: #ffe6f0;
+      color: #333;
+      transition: background 1s ease, color 0.5s ease;
     }
 
     .container {
-      max-width: 600px;
-      margin: 0 auto;
-      background-color: #fff0f5;
+      max-width: 700px;
+      margin: auto;
+      background: #fff0f5;
       padding: 30px;
       border-radius: 15px;
       box-shadow: 0 0 15px rgba(255, 182, 193, 0.6);
+      transition: background 1s ease, color 0.5s ease;
     }
 
     h1 {
@@ -32,17 +33,19 @@
       border: 2px solid #ffb6c1;
       border-radius: 10px;
       margin-top: 10px;
+      font-size: 16px;
     }
 
     button {
       background-color: #ff69b4;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 10px 25px;
       border-radius: 20px;
       cursor: pointer;
       font-size: 16px;
-      margin: 10px;
+      margin: 15px 10px;
+      transition: background-color 0.3s ease;
     }
 
     button:hover {
@@ -54,60 +57,152 @@
       margin-top: 20px;
     }
 
-    #warning {
-      color: red;
-      font-weight: bold;
-      margin-top: 20px;
+    #warning-section {
+      display: none;
+      margin-top: 30px;
     }
 
-    .gif {
-      width: 200px;
-      margin: 20px auto;
+    .danger {
+      background-color: #8b0000 !important;
+      color: #ffcccc !important;
+    }
+
+    .danger .container {
+      background-color: #4d0000;
+      box-shadow: 0 0 25px red;
+    }
+
+    .blinking {
+      animation: blinkBg 1.5s infinite;
+    }
+
+    @keyframes blinkBg {
+      0%, 100% { background-color: #8b0000; }
+      50% { background-color: #ff0000; }
+    }
+
+    .blink-warning {
+      font-size: 30px;
+      color: #ff6666;
+      animation: blinkText 1.5s infinite;
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+
+    @keyframes blinkText {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+
+    .heart {
+      font-size: 80px;
+      animation: beat 2s infinite;
+      color: red;
+      margin: 20px 0;
+    }
+
+    @keyframes beat {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.3); }
+    }
+
+    .final-message {
+      font-size: 20px;
+      margin-top: 20px;
+      display: none;
     }
   </style>
 </head>
-<body>
-  <div class="container">
-    <h1>💌 A Special Message 💌</h1>
-    <p>Please enter your name:</p>
-    <input type="text" id="nameInput" placeholder="Type your name..." />
+<body id="body">
+  <div class="container" id="main-container">
+    <h1>तुझं नाव लिही:</h1>
+    <input type="text" id="nameInput" placeholder="Put your name..." />
     <br />
     <button onclick="checkName()">Okay</button>
 
-    <div id="warning"></div>
+    
 
-    <div id="message-section">
-      <div class="gif">
-        <img src="https://media.giphy.com/media/1BcfiGlOGXzQk/giphy.gif" alt="Cute Apology" width="100%" />
-      </div>
-      <h2>Dear Smruti ❤️</h2>
-      <p>
-        I am truly sorry for my words. I never intended to hurt you.<br>
-        You are the most precious girl in my life and I cherish you more than anything.<br>
-        Please forgive me... this will never happen again.<br><br>
-        With all my love,<br>
-        <strong>Koshish 💖</strong>
+    <!-- WARNING SECTION -->
+    <div id="warning-section">
+      <h2 class="blink-warning">🚨 Warning! 🚨</h2>
+      <p class="blink-warning">
+        You are not who I am looking for.<br>
+        Immediately leave this site!
       </p>
-      <div>
-        <button onclick="alert('Yay! Thank you Smruti ❤️')">Forgive 💖</button>
-        <button onclick="alert('I understand... but I’ll always wait for your forgiveness 💔')">Not to Forgive 💔</button>
-      </div>
+    </div>
+
+    <!-- LOVE MESSAGE SECTION -->
+    <div id="message-section">
+      <!-- Heart Animation -->
+      <div class="heart">❤️</div>
+
+      <h2>प्रिय स्मृति,</h2>
+      <p style="font-size: 18px; line-height: 1.8;">
+        मला खरंच माफ कर...<br>
+        माझ्या शब्दांनी तुला दुखावलं याचं मला खूप वाईट वाटतंय.<br>
+        मी तुला कधीच त्रास द्यायचा विचार केला नव्हता, पण चुकून शब्द जड झाले.<br>
+        तू माझ्या आयुष्यातली सगळ्यात सुंदर, प्रेमळ, आणि खास व्यक्ती आहेस.<br>
+        तुझ्याशिवाय सगळं अपुरं वाटतं...<br><br>
+        चला ना, सगळं विसरून पुन्हा सुरुवात करूया.<br>
+        एकत्र, आनंदाने, प्रेमाने... कायमच ❤️<br><br>
+        तुझाच,<br>
+        <b>कोशिश 💖</b>
+
+        <!-- GIF under Koshish -->
+        <br><br>
+        <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Love Apology GIF" width="250" style="margin-top: 10px;" />
+      </p>
+
+      <button onclick="forgive()">माफ कर 💖</button>
+      <button onclick="notForgive()">नाही माफ करणार 💔</button>
+
+      <div id="final-message" class="final-message"></div>
     </div>
   </div>
+
+  <!-- Siren Sound -->
+  <audio id="siren" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
 
   <script>
     function checkName() {
       const name = document.getElementById("nameInput").value.trim().toLowerCase();
       const messageSection = document.getElementById("message-section");
-      const warning = document.getElementById("warning");
+      const warningSection = document.getElementById("warning-section");
+      const container = document.getElementById("main-container");
+      const body = document.getElementById("body");
+      const siren = document.getElementById("siren");
+      const finalMsg = document.getElementById("final-message");
 
       if (name === "smruti") {
         messageSection.style.display = "block";
-        warning.innerText = "";
+        warningSection.style.display = "none";
+        container.classList.remove("danger");
+        body.classList.remove("danger", "blinking");
+        siren.pause();
+        siren.currentTime = 0;
+        finalMsg.style.display = "none";
+        finalMsg.innerHTML = "";
       } else {
         messageSection.style.display = "none";
-        warning.innerText = "⚠️ You are not the one I am looking for. Leave this site immediately!";
+        warningSection.style.display = "block";
+        container.classList.add("danger");
+        body.classList.add("danger", "blinking");
+        siren.play();
+        finalMsg.style.display = "none";
+        finalMsg.innerHTML = "";
       }
+    }
+
+    function forgive() {
+      const msg = document.getElementById("final-message");
+      msg.style.display = "block";
+      msg.innerHTML = "Thank you so much sweetie 🥰<br>तू सगळ्यात भारी GF आहेस! 💖";
+    }
+
+    function notForgive() {
+      const msg = document.getElementById("final-message");
+      msg.style.display = "block";
+      msg.innerHTML = "<span style='font-size: 22px;'>Please na sweetie 🥺<br>माफ कर ना ग 🙏</span>";
     }
   </script>
 </body>

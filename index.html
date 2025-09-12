@@ -45,7 +45,8 @@
       cursor: pointer;
       font-size: 16px;
       margin: 15px 10px;
-      transition: background-color 0.3s ease;
+      position: relative;
+      transition: background-color 0.3s ease, transform 0.3s ease;
     }
 
     button:hover {
@@ -168,7 +169,7 @@
       </p>
 
       <button onclick="forgive()">माफ केले 💖</button>
-      <button onclick="notForgive()">नाही माफ करणार 💔</button>
+      <button id="notForgiveBtn" onmouseover="moveButton()">नाही माफ करणार 💔</button>
 
       <div id="final-message" class="final-message"></div>
     </div>
@@ -178,6 +179,33 @@
   <audio id="siren" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
 
   <script>
+    let moveCount = 0;
+    const maxMoves = 3;
+    const btn = document.getElementById("notForgiveBtn");
+
+    function moveButton() {
+      if (moveCount >= maxMoves) {
+        // 3 वेळा हलल्यावर मूळ जागेवर ठेवा, आणि पुढे हलू नये
+        btn.style.transform = 'translate(0, 0)';
+        return;
+      }
+
+      moveCount++;
+
+      // वेगवेगळ्या जागा पण खाली जाणार नाही (y ची value negative किंवा 0)
+      switch(moveCount) {
+        case 1:
+          btn.style.transform = 'translate(300px, 0)';
+          break;
+        case 2:
+          btn.style.transform = 'translate(-320px, -50px)';
+          break;
+        case 3:
+          btn.style.transform = 'translate(280px, -40px)';
+          break;
+      }
+    }
+
     function checkName() {
       const name = document.getElementById("nameInput").value.trim().toLowerCase();
       const messageSection = document.getElementById("message-section");
@@ -217,6 +245,3 @@
   </script>
 </body>
 </html>
-
-
-

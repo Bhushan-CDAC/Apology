@@ -5,12 +5,14 @@
   <title>Sweetie, Please Na... 🙏💔</title>
   <style>
     body {
-      background: #ffccd5;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
+      margin: 0;
       padding: 50px 20px;
-      color: #b3003b;
+      background: linear-gradient(to bottom right, #ffccdd, #ffe6f0);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
       overflow-x: hidden;
+      overflow-y: auto; /* Scrollbar is now enabled */
+      color: #b3003b;
     }
 
     h1 {
@@ -21,16 +23,12 @@
     }
 
     p {
+      max-width: 800px;
+      margin: 30px auto;
       font-size: 22px;
-      max-width: 700px;
-      margin: 0 auto 30px;
-      line-height: 1.7;
+      line-height: 1.8;
       font-weight: 600;
-    }
-
-    @keyframes pulse {
-      0%, 100% { color: #99002e; }
-      50% { color: #ff3366; }
+      animation: fadeIn 2s ease-in-out;
     }
 
     img {
@@ -45,24 +43,104 @@
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-15px); }
     }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes pulse {
+      0%, 100% { color: #99002e; }
+      50% { color: #ff3366; }
+    }
+
+    /* Falling hearts */
+    .heart {
+      position: absolute;
+      top: -30px;
+      font-size: 24px;
+      color: red;
+      animation: fallDown 5s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes fallDown {
+      0% {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      100% {
+        transform: translateY(110vh);
+        opacity: 0;
+      }
+    }
+
+    /* Fireworks */
+    .firework {
+      position: absolute;
+      width: 5px;
+      height: 5px;
+      background-color: transparent;
+      border-radius: 50%;
+      animation: explode 1s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes explode {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(4);
+        opacity: 0;
+      }
+    }
   </style>
 </head>
-<body>
+<body onload="launchFireworks(); dropHearts();">
+
   <h1>Sweetie, Please Na... 🙏🥺</h1>
   <p>
-    किती महिने झाले तुला माफ करण्यासाठी<br>
-    किती दिवस मी तुझ्यासाठी झगडलो, वेदना घेतल्या,<br>
-    माझं मन तुझ्यासाठी फुटून तुटलंय,<br>
-    तुझ्याशिवाय माझं आयुष्य अपूर्ण आहे.<br><br>
-    हे माझं शेवटचं आवाहन आहे,<br>
-    येऊन सगळं विसरून पुन्हा हसत-खेळत एकत्र राहूया.<br>
+    किती महिने झाले अग <br>
+    माफ करण्यासाठी किती दिवस efforts घेतले माफी मागितली किती वेळा <br>
+    असं करून करून माझं मन तुटत चाललेय आता,<br>
+    एके दिवशी सगळेच संपून जाईल अशाने.<br><br>
+    हि माझी कळकळीची विनंती आहे,<br>
+    सगळं विसरून जाऊन पुन्हा हसत-खेळत एकत्र राहूया.<br>
     माझ्या भविष्याच्या प्रत्येक क्षणासाठी तुझी गरज आहे.<br><br>
-    कृपया, मला माफ कर, माझ्या जीवनात परत ये.<br><br>
+    कृपया, मला माफ कर, माझ्या जीवनात मला साथ दे.<br><br>
     - तुझा <b>कोशिश</b> 💖
   </p>
 
-  <!-- Gif below text -->
-  <img src="https://media.giphy.com/media/3oEjI6SIIHBdRxXI40/giphy.gif" alt="Please forgive me gif" />
+  <img src="sorry.jpg" alt="Please forgive me gif" />
+
+  <!-- Fireworks and Falling Hearts Scripts -->
+  <script>
+    function launchFireworks() {
+      for (let i = 0; i < 30; i++) {
+        const firework = document.createElement("div");
+        firework.classList.add("firework");
+        firework.style.left = `${Math.random() * 100}vw`;
+        firework.style.top = `${Math.random() * 100}vh`;
+        firework.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 70%)`;
+        firework.style.width = firework.style.height = `${5 + Math.random() * 10}px`;
+        document.body.appendChild(firework);
+        setTimeout(() => firework.remove(), 1000);
+      }
+    }
+
+    function dropHearts() {
+      setInterval(() => {
+        const heart = document.createElement("div");
+        heart.classList.add("heart");
+        heart.style.left = `${Math.random() * 100}vw`;
+        heart.innerText = "💖";
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 5000);
+      }, 400);
+    }
+  </script>
 
 </body>
 </html>
